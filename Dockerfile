@@ -13,4 +13,7 @@ VOLUME /var/nginx-cache
 EXPOSE 80
 EXPOSE 443
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD echo "resolver " > ns.conf && \ 
+    cat /etc/resolv.conf | grep "nameserver" | awk '{print $2}' | tr '\n' ' ' >> ns.conf && \
+    echo ";" >> ns.conf && \ 
+    nginx -g 'daemon off;'
