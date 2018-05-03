@@ -15,5 +15,5 @@ EXPOSE 443
 
 CMD echo "resolver " > ns.conf && \ 
     cat /etc/resolv.conf | grep "nameserver" | awk '{print $2}' | tr '\n' ' ' >> ns.conf && \
-    echo ";" >> ns.conf && \ 
+    echo " ipv6=off;" >> ns.conf && \ 
     nginx -g 'daemon off;'
