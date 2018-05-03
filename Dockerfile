@@ -1,4 +1,7 @@
-FROM nginx:stable
+#FROM nginx:stable
+FROM centos:latest
+
+RUN yum -y install nginx net-tools
 
 COPY files/ /
 
