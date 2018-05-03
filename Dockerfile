@@ -3,7 +3,7 @@ FROM centos:latest
 
 RUN yum -y install nginx net-tools
 
-COPY files/ /
+COPY files/ /etc
 
 VOLUME /etc/nginx
 VOLUME /var/nginx-cache
